@@ -44,4 +44,8 @@ class base {
   include ssh
   # 安装、配置和设置定时更新 ntpdate
   include ntpdate
+  # 添加用户 suhua 和 youtube
+  include user::aisuhua
+  include user::youtube
+
 }
