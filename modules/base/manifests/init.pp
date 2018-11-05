@@ -1,5 +1,17 @@
 class base {
 
+  # 修改 DNS
+  # https://puppet.com/docs/puppet/5.5/quick_start_dns.html
+  $nameservers = ['223.5.5.5', '223.6.6.6']
+
+  file { '/etc/resolv.conf':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('resolver/resolv.conf.erb'),
+  }
+
   # 使用中科大镜像
   file { '/etc/apt/sources.list':
     ensure => file,
@@ -38,8 +50,8 @@ class base {
   package { ['augeas-tools']:
     ensure => installed,
   }
-
   # Fix php7 FPM support
+  # https://github.com/hercules-team/augeas/commit/428e3c7961657f211e3427b22ad72119068ae2ca
   file { '/usr/share/augeas/lenses/dist/php.aug':
     ensure => file,
     source => "puppet:///modules//base/php.aug",
@@ -59,7 +71,7 @@ class base {
 
   # 添加 suhua 和 youtube 用户
   include user::aisuhua
-  include user::youtube
+  include user::dba
   # 用户授权
   include privileges
 

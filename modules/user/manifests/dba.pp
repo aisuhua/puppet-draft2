@@ -1,6 +1,6 @@
-class user::youtube {
-  accounts::user { 'youtube':
-    groups => ['youtube','sudo'],
+class user::dba {
+  accounts::user { 'dba':
+    groups => ['dba','sudo'],
     shell => '/bin/bash',
     password => '$1$6Weoolps$Yrx/B8XND7xgmPtvp3sna.', # shell> openssl passwd -1
     locked => false,
