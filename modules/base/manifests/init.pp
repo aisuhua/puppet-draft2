@@ -12,19 +12,50 @@ class base {
     content => template('resolver/resolv.conf.erb'),
   }
 
-  # 使用中科大镜像
-  file { '/etc/apt/sources.list':
-    ensure => file,
-    source => "puppet:///modules/base/sources.list"
+  # https://forge.puppet.com/puppetlabs/apt
+  include apt
+  $lsbdistcodename = 'xenial';
+  apt::source { "archive.ubuntu.com-${lsbdistcodename}":
+    location => 'http://archive.ubuntu.com/ubuntu',
+    key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+    repos    => 'main universe multiverse restricted',
   }
 
-  # 更新源
-  exec { 'aptgetupdate':
-    path => '/usr/bin',
-    command => 'apt-get update',
-    subscribe => File['/etc/apt/sources.list'],
-    refreshonly => true
+  apt::source { "archive.ubuntu.com-${lsbdistcodename}-security":
+    location => 'http://archive.ubuntu.com/ubuntu',
+    key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+    repos    => 'main universe multiverse restricted',
+    release  => "${lsbdistcodename}-security"
   }
+
+  apt::source { "archive.ubuntu.com-${lsbdistcodename}-updates":
+    location => 'http://archive.ubuntu.com/ubuntu',
+    key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+    repos    => 'main universe multiverse restricted',
+    release  => "${lsbdistcodename}-updates"
+  }
+
+  apt::source { "archive.ubuntu.com-${lsbdistcodename}-backports":
+    location => 'http://archive.ubuntu.com/ubuntu',
+    key      => '630239CC130E1A7FD81A27B140976EAF437D05B5',
+    repos    => 'main universe multiverse restricted',
+    release  => "${lsbdistcodename}-backports"
+  }
+
+  # 使用中科大镜像
+  # file { 'replacesourcelist':
+  #   ensure => file,
+  #   path => '/etc/apt/sources.list',
+  #   source => "puppet:///modules/base/sources.list"
+  # }
+
+  # 更新源
+  # exec { 'updatesourcelist':
+  #   path => '/usr/bin',
+  #   command => 'apt-get update',
+  #   subscribe => File['replacesourcelist'],
+  #   refreshonly => true
+  # }
 
   # 创建项目目录和机房标识文件
   file {
