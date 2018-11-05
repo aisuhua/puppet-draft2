@@ -5,7 +5,7 @@ class user::youtube {
     password => '$1$6Weoolps$Yrx/B8XND7xgmPtvp3sna.', # shell> openssl passwd -1
     locked => false,
     sshkeys => [
-      'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtuKQ+2jQ1XQW/YZYHtaCcqZMuLTxiGGJRNizbj6HH99SswQFLYM/L1HKsr1DE06Dq6xEorY7dsuAfoMNmutZ02olMkR/9GiYZS2llsgyHd74c74yEf2Umj/Ibzm9yS5RYGHWpkRznG9QqVI66QU8R4TXvOzOBIHfEq+OBCPsFjxOerOhktHOJkJNrydvPGYDVlHIniNk2c7nTRZxjVcVtKRaVv6vEhGkHNQmpfTrs6ynvz4cMphmL7uArwWBql/B7mnkkM4K3jkUv1ytBSCY07v7irwLcrP0PLsdxZQkUDolnuOCI1FFP4Egyh1m+H1iKdQM6T7XuEOfsWohfwFpL suhua'
+      'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrrWoY9DgQ37w7BadsRkZAJNqAxdYmPx99XvJ+PUbtT9FldFsXFRg10OtXVTaniwkIA5YOP52j4AIpfbFw6F1TGJ8npScKNWYwpvfiXN5CqYfHmQb4Av7HESkgzOcBQUgTgesovScpsL2JluYoW83kHZABzq/hAEN9TZuVPeYtYLB17EpWVFBl2si7iplA/iP0/TFRhWxOYw68/A1U0mhAK4gAxosq/Sb6Mawfp1jaA2EwJcoBeKM8vZgXRkWFmKIFiKLvmpCZjoiqxhG+6pI3yDt0l/g7VN69RjCANYregBg1t9wpDhKjg1sPmJhLbnzAp08zlXMP3Fo4o58JCNoB archlinux-dg-home'
     ]
   }
 }
