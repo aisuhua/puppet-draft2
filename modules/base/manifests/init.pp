@@ -22,7 +22,16 @@ class base {
   }
 
   # 安装基础软件
-  package { ['python-software-properties', 'ruby-dev', 'build-essential', 'sysstat', 'lsb-release']:
+  package {
+    [
+      'python-software-properties',
+      'ruby-dev',
+      'build-essential',
+      'sysstat',
+      'lsb-release',
+      'curl',
+      'libcurl4-gnutls-dev'
+    ]:
     ensure => installed,
   }
 
@@ -46,14 +55,9 @@ class base {
 
   # 安装、配置和启动 ssh
   include ssh
+
   # 安装、配置和定时校准时间 ntpdate
   include ntpdate
-
-  # 添加 suhua 和 youtube 用户
-  include user::aisuhua
-  include user::dba
-  # 用户授权
-  include privileges
 
   # 优化系统内核参数
   include sysctl
@@ -61,4 +65,11 @@ class base {
   # 增加文件描述符限制1
   include limits
   include system
+
+  # 添加 suhua 和 youtube 用户
+  include user::aisuhua
+  include user::dba
+
+  # 用户授权
+  include privileges
 }
