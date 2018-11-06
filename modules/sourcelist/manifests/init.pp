@@ -13,24 +13,24 @@ class sourcelist {
   $lsbdistcodename = 'xenial';
 
   apt::source { "mirrors.ustc.edu.cn-${lsbdistcodename}":
-    location => 'https://mirrors.ustc.edu.cn/ubuntu',
+    location => 'http://mirrors.ustc.edu.cn/ubuntu',
     repos => 'main universe multiverse restricted',
   }
 
   apt::source { "mirrors.ustc.edu.cn-${lsbdistcodename}-security":
-    location => 'https://mirrors.ustc.edu.cn/ubuntu',
+    location => 'http://mirrors.ustc.edu.cn/ubuntu',
     repos => 'main universe multiverse restricted',
     release => "${lsbdistcodename}-security"
   }
 
   apt::source { "mirrors.ustc.edu.cn-${lsbdistcodename}-updates":
-    location => 'https://mirrors.ustc.edu.cn/ubuntu',
+    location => 'http://mirrors.ustc.edu.cn/ubuntu',
     repos => 'main universe multiverse restricted',
     release => "${lsbdistcodename}-updates"
   }
 
   apt::source { "mirrors.ustc.edu.cn-${lsbdistcodename}-backports":
-    location => 'https://mirrors.ustc.edu.cn/ubuntu',
+    location => 'http://mirrors.ustc.edu.cn/ubuntu',
     repos => 'main universe multiverse restricted',
     release => "${lsbdistcodename}-backports"
   }

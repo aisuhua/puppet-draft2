@@ -3,9 +3,6 @@ class base {
   # 修改 DNS
   include resolver
 
-  # 使用国内镜像
-  include sourcelist
-
   # 创建项目目录和机房标识文件
   file {
     default:
@@ -24,6 +21,7 @@ class base {
   # 安装基础软件
   package {
     [
+      'apt-transport-https',
       'python-software-properties',
       'ruby-dev',
       'build-essential',
@@ -72,4 +70,7 @@ class base {
 
   # 用户授权
   include privileges
+
+  # 使用国内镜像
+  include sourcelist
 }

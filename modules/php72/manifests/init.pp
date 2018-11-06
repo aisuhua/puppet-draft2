@@ -5,7 +5,7 @@ class php72 {
   exec { "update-ondrej-php":
     path => '/usr/bin:/bin',
     command => "apt-get update",
-    subscribe => [Apt::Ppa['ppa:ondrej/php']],
+    subscribe => Apt::Ppa['ppa:ondrej/php'],
     refreshonly => true
   }
 
@@ -35,14 +35,16 @@ class php72 {
       'php-redis',
       'php-amqp',
     ]:
-      ensure => installed
+      ensure => installed,
+      require => Exec['update-ondrej-php']
   }
 
   service { 'php7.2-fpm':
     enable => true,
     ensure => running,
     hasrestart => true,
-    hasstatus => true
+    hasstatus => true,
+    require => Package['php7.2-fpm']
   }
 
   # 设置 PHP 默认版本
@@ -62,6 +64,7 @@ class php72 {
       "set upload_max_filesize 30M",
       "set post_max_size 30M",
     ],
+    require => Package['php7.2-fpm'],
     notify => Service['php7.2-fpm']
   }
 
@@ -70,6 +73,7 @@ class php72 {
     changes => [
       "set upload_max_filesize 30M",
       "set post_max_size 30M",
-    ]
+    ],
+    require => Package['php7.2-cli']
   }
 }
