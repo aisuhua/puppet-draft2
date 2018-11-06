@@ -2,7 +2,7 @@ class php72 {
 
   apt::ppa { 'ppa:ondrej/php': }
 
-  exec { "updateondrejphp":
+  exec { "update-ondrej-php":
     path => '/usr/bin:/bin',
     command => "apt-get update",
     subscribe => [Apt::Ppa['ppa:ondrej/php']],
@@ -56,7 +56,7 @@ class php72 {
   }
 
   # 优化 php.ini 配置
-  augeas { "fpm/php.ini":
+  augeas { 'fpm/php.ini':
     context => '/files/etc/php/7.2/fpm/php.ini/PHP',
     changes => [
       "set upload_max_filesize 30M",
@@ -65,7 +65,7 @@ class php72 {
     notify => Service['php7.2-fpm']
   }
 
-  augeas { "cli/php.ini":
+  augeas { 'cli/php.ini':
     context => '/files/etc/php/7.2/cli/php.ini/PHP',
     changes => [
       "set upload_max_filesize 30M",
