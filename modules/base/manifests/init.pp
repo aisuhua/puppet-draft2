@@ -57,11 +57,11 @@ class base {
   # 优化系统内核参数
   include sysctl
 
-  # 增加文件描述符限制1
+  # 增加文件描述符限制
   include limits
   include system
 
-  # 添加 suhua 和 youtube 用户
+  # 添加 suhua 和 dba 用户
   include user::aisuhua
   include user::dba
 
