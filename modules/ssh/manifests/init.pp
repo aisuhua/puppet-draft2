@@ -9,7 +9,8 @@ class ssh {
     changes => [
       "set Port 25680",
       "set PermitRootLogin yes",
-    ]
+    ],
+    require => Package['openssh-server']
   }
 
   service { 'ssh':
