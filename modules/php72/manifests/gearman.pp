@@ -1,8 +1,8 @@
-class php72 {
+class php72::gearman {
 
   apt::ppa { 'ppa:ondrej/pkg-gearman': }
 
-  exec { "update_ondrejpkggearman":
+  exec { "update-ondrej-pkg-gearman":
     path => '/usr/bin:/bin',
     command => "apt-get update",
     subscribe => [Apt::Ppa['ppa:ondrej/pkg-gearman']],
@@ -13,7 +13,7 @@ class php72 {
     ensure => installed,
     require => [
       Package['php7.2-dev'],
-
+      Exec['update-ondrej-pkg-gearman']
     ],
     notify => Service['php7.2-fpm']
   }

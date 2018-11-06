@@ -46,7 +46,7 @@ class php72 {
   }
 
   # 设置 PHP 默认版本
-  exec { 'update_alternatives_php7.2':
+  exec { 'update-alternatives-php7.2':
     path => '/bin:/usr/bin:/usr/sbin',
     require => Package['php7.2-cli'],
     unless => 'php -v | grep -q 7.2',
@@ -70,7 +70,6 @@ class php72 {
     changes => [
       "set upload_max_filesize 30M",
       "set post_max_size 30M",
-    ],
-    notify => Service['php7.2-fpm']
+    ]
   }
 }
