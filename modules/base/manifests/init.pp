@@ -21,22 +21,19 @@ class base {
   # 安装基础软件
   package {
     [
-      'apt-transport-https',
       'python-software-properties',
       'ruby-dev',
       'build-essential',
       'sysstat',
       'lsb-release',
       'curl',
-      'libcurl4-gnutls-dev'
+      'libcurl4-gnutls-dev',
+      'dirmngr',
+      'augeas-tools'
     ]:
     ensure => installed,
   }
 
-  # 安装 augtool
-  package { ['augeas-tools']:
-    ensure => installed,
-  }
   # Fix php7 FPM support
   # https://github.com/hercules-team/augeas/commit/428e3c7961657f211e3427b22ad72119068ae2ca
   file { '/usr/share/augeas/lenses/dist/php.aug':
@@ -72,5 +69,6 @@ class base {
   include privileges
 
   # 使用国内镜像
-  include sourcelist
+  include apt
+  # include sourcelist # 有问题暂不启用
 }
