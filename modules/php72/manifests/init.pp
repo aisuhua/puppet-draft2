@@ -2,13 +2,6 @@ class php72 {
 
   apt::ppa { 'ppa:ondrej/php': }
 
-  exec { "update-ondrej-php":
-    path => '/usr/bin:/bin',
-    command => "apt-get update",
-    subscribe => Apt::Ppa['ppa:ondrej/php'],
-    refreshonly => true
-  }
-
   package {
     [
       'php7.2-common',
@@ -36,7 +29,7 @@ class php72 {
       'php-amqp',
     ]:
       ensure => installed,
-      require => Exec['update-ondrej-php']
+      require => Apt::Ppa['ppa:ondrej/php']
   }
 
   service { 'php7.2-fpm':
