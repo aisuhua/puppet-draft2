@@ -1,5 +1,8 @@
 class base {
 
+  # 修改 hosts
+  include hosts
+
   # 修改 DNS
   include resolver
 

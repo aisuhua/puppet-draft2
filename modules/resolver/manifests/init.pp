@@ -1,7 +1,7 @@
 class resolver {
 
   # https://puppet.com/docs/puppet/5.5/quick_start_dns.html
-  $nameservers = ['223.5.5.5', '223.6.6.6']
+  $nameservers = ['192.168.1.46', '223.5.5.5', '223.6.6.6']
 
   file { '/etc/resolv.conf':
     ensure => file,
