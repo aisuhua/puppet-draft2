@@ -13,7 +13,7 @@ class php72::couchbase {
     ensure => installed,
     provider => dpkg,
     source => '/tmp/couchbase-release-1.0-4-amd64.deb',
-    require => Exec['download-couchbase-release']
+    require => Exec['download-couchbase-release'],
   }
 
   # clear

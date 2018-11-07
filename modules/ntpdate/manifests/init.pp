@@ -10,13 +10,15 @@ class ntpdate {
   cron {
     'ntpdate-sync1':
       command => '/usr/sbin/ntpdate ntp7.aliyun.com',
-      user    => root,
-      minute  => '1',
-      hour    => '6';
+      user => root,
+      minute => '1',
+      hour => '6',
+      require => Package['ntpdate'];
     'ntpdate-sync2':
       command => '/usr/sbin/ntpdate ntp6.aliyun.com',
-      user    => root,
-      minute  => '1',
-      hour    => '18';
+      user => root,
+      minute => '1',
+      hour => '18',
+      require => Package['ntpdate'];
   }
 }

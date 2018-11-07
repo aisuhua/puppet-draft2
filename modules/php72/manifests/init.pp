@@ -32,14 +32,6 @@ class php72 {
       require => Apt::Ppa['ppa:ondrej/php']
   }
 
-  service { 'php7.2-fpm':
-    enable => true,
-    ensure => running,
-    hasrestart => true,
-    hasstatus => true,
-    require => Package['php7.2-fpm']
-  }
-
   # 设置 PHP 默认版本
   exec { 'update-alternatives-php7.2':
     path => '/bin:/usr/bin:/usr/sbin',
@@ -91,5 +83,14 @@ class php72 {
     ],
     require => Package['php7.2-fpm'],
     notify => Service['php7.2-fpm']
+  }
+
+  # 启动 PHP-FPM
+  service { 'php7.2-fpm':
+    enable => true,
+    ensure => running,
+    hasrestart => true,
+    hasstatus => true,
+    require => Package['php7.2-fpm']
   }
 }
