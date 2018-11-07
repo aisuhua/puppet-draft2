@@ -2,6 +2,14 @@ class php72 {
 
   apt::ppa { 'ppa:ondrej/php': }
 
+  exec { "update-ondrej-php":
+    path => '/usr/bin:/bin',
+    command => "apt-get update",
+    subscribe => Apt::Ppa['ppa:ondrej/php'],
+    refreshonly => true,
+    unless => 'apt-cache search php7.2-dev'
+  }
+
   package {
     [
       'php7.2-common',
@@ -29,7 +37,7 @@ class php72 {
       'php-amqp',
     ]:
       ensure => installed,
-      require => Apt::Ppa['ppa:ondrej/php']
+      require => Exec['update-ondrej-php']
   }
 
   # 设置 PHP 默认版本

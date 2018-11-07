@@ -8,10 +8,10 @@ class nginx::default {
       ensure => directory;
     '/www/web/default/index.html':
       ensure => file,
-      content => '<center><h1>Hello, World!</h1></center>';
+      content => "<center><h1>Hello, World!</h1></center>\n";
     '/www/web/default/index.php':
       ensure => file,
-      content => '<?php phpinfo();?>';
+      content => "<?php phpinfo();?>\n";
   }
 
   file { '/etc/nginx/sites-enabled/default.conf':
