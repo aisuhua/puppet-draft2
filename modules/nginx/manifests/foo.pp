@@ -1,23 +1,23 @@
-class nginx::default inherits nginx::config {
+class nginx::foo inherits nginx::config {
 
   file {
     default:
       group => 'www-data',
       owner => 'www-data',
       require => File['/www/web'];
-    '/www/web/default':
+    '/www/web/foo':
       ensure => directory;
-    '/www/web/default/index.html':
+    '/www/web/foo/index.html':
       ensure => file,
       content => "<center><h1>Hello, World!</h1></center>\n";
-    '/www/web/default/index.php':
+    '/www/web/foo/index.php':
       ensure => file,
       content => "<?php phpinfo();?>\n";
   }
 
-  file { '/etc/nginx/sites-enabled/default.conf':
+  file { '/etc/nginx/sites-enabled/foo.conf':
     ensure => file,
-    content => template('nginx/default.conf.erb'),
+    content => template('nginx/foo.conf.erb'),
     require => Package['nginx'],
     notify => Service['nginx']
   }

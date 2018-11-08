@@ -8,7 +8,7 @@ server {
 
     include /etc/nginx/sites-available/status.conf;
 
-    root /www/web/default;
+    root /www/web/foo;
 
     location / {
         try_files $uri $uri/ =404;

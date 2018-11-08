@@ -1,0 +1,3 @@
+class logrotate::config {
+
+}

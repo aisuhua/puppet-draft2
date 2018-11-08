@@ -9,6 +9,7 @@ node 'puppetnode2.aisuhua.net' {
   include php72::couchbase
   include php72::xdebug
   include nginx
-  include nginx::default
+  include nginx::foo
   include supervisor
+  include logrotate::foo
 }
