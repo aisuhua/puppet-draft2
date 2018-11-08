@@ -13,4 +13,6 @@ node default {
   include supervisor
   include supervisor::foo
   include logrotate::foo
+  include polipo
+  include rabbitmq
 }
