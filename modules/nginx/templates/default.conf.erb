@@ -1,12 +1,14 @@
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
+    server_name _;
+
+    add_header X-Powered-By aisuhua;
+    add_header X-Server-Name <%= @hostname %>;
 
     include /etc/nginx/sites-available/status.conf;
 
     root /www/web/default;
-
-    server_name _;
 
     location / {
         try_files $uri $uri/ =404;

@@ -1,5 +1,6 @@
 node 'puppetnode2.aisuhua.net' {
   include base
+  include rsync
   include php72
   include php72::config
   include php72::yar
