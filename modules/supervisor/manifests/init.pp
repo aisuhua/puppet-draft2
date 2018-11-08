@@ -11,6 +11,8 @@ class supervisor {
     notify => Service['supervisor']
   }
 
+  contain supervisor::update
+
   service { 'supervisor':
     enable => true,
     ensure => running,

@@ -13,6 +13,9 @@ class nginx::foo inherits nginx::config {
     '/www/web/foo/index.php':
       ensure => file,
       content => "<?php phpinfo();?>\n";
+    '/www/web/foo/worker.php':
+      ensure => file,
+      content => '<?php $i = 0; while(true) { echo $i++; sleep(1); } ;?>';
   }
 
   file { '/etc/nginx/sites-enabled/foo.conf':
