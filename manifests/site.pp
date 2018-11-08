@@ -12,6 +12,5 @@ node default {
   include nginx::foo
   include supervisor
   include supervisor::foo
-  include logrotate
   include logrotate::foo
 }
