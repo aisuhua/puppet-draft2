@@ -6,8 +6,7 @@ class php72::gearman {
     path => '/usr/bin:/bin',
     command => "apt-get update",
     subscribe => Apt::Ppa['ppa:ondrej/pkg-gearman'],
-    refreshonly => true,
-    unless => 'apt-cache search php-gearman'
+    refreshonly => true
   }
 
   package { 'php-gearman':

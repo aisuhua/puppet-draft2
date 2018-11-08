@@ -3,9 +3,16 @@ class nginx {
   # https://launchpad.net/~nginx/+archive/ubuntu/stable
   apt::ppa { 'ppa:nginx/stable': }
 
+  exec { "update-nginx-stable":
+    path => '/usr/bin:/bin',
+    command => "apt-get update",
+    subscribe => Apt::Ppa['ppa:nginx/stable'],
+    refreshonly => true
+  }
+
   package { 'nginx':
     ensure => installed,
-    require => Apt::Ppa['ppa:nginx/stable']
+    require => Exec['update-nginx-stable']
   }
 
   file { '/etc/nginx/sites-enabled/default':

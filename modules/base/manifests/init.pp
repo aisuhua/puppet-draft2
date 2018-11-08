@@ -1,10 +1,10 @@
 class base {
 
   # 修改 hosts
-  include hosts
+  include hosts::company
 
   # 修改 DNS
-  include resolver
+  include resolver::company
 
   # 创建项目目录和机房标识文件
   file {

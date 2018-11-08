@@ -2,12 +2,14 @@ class php72 {
 
   apt::ppa { 'ppa:ondrej/php': }
 
+  # apt::source does not force an 'apt-get update' and fails on first run
+  # https://tickets.puppetlabs.com/browse/MODULES-2190
+  # https://github.com/puppetlabs/puppetlabs-apt#limitations
   exec { "update-ondrej-php":
     path => '/usr/bin:/bin',
     command => "apt-get update",
     subscribe => Apt::Ppa['ppa:ondrej/php'],
-    refreshonly => true,
-    unless => 'apt-cache search php7.2-dev'
+    refreshonly => true
   }
 
   package {
