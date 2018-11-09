@@ -1,12 +1,14 @@
 class polipo {
 
+  # $parent_proxy = $config::parent_proxy;
+
   package { 'polipo':
     ensure => installed;
   }
 
   file { '/etc/polipo/config':
     ensure => file,
-    source => 'puppet:///modules/polipo/config',
+    content => template('polipo/conf.erb'),
     require => Package['polipo'],
     notify => Service['polipo'],
   }

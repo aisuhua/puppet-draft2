@@ -1,7 +1,7 @@
 class base {
 
   # 修改 hosts
-  include hosts
+  include hosts::company
 
   # 修改 DNS
   include resolver
@@ -15,9 +15,9 @@ class base {
       ensure => directory;
     '/www/web':
       ensure => directory;
-    '/www/web/IDC_HN1':
+    "/www/web/IDC_${$config::idc_name}":
       ensure => file,
-      content => 'HUANAN1',
+      content => $config::idc_content,
       mode => '0644';
   }
 

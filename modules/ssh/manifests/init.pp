@@ -7,8 +7,8 @@ class ssh {
   augeas { 'sshd_config':
     context => '/files/etc/ssh/sshd_config',
     changes => [
-      "set Port 25680",
-      "set PermitRootLogin yes",
+      "set Port ${config::ssh_port}",
+      "set PermitRootLogin ${config::ssh_permit_root_login}",
     ],
     require => Package['openssh-server']
   }
