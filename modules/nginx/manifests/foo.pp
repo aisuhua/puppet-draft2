@@ -16,7 +16,7 @@ class nginx::foo inherits nginx::config {
     '/www/web/foo/worker.php':
       ensure => file,
       content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>',
-      notify => Service['supervisor'],
+      notify => Exec['supervisor-update'],
       require => [
         File['/www/web/foo'],
         Package['supervisor']
@@ -27,6 +27,6 @@ class nginx::foo inherits nginx::config {
     ensure => file,
     content => template('nginx/foo.conf.erb'),
     require => Package['nginx'],
-    notify => Service['nginx']
+    notify => Exec['nginx-reload']
   }
 }

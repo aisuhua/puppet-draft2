@@ -20,4 +20,7 @@ class config {
   # ssh
   $ssh_port = 25680
   $ssh_permit_root_login = 'yes'
+
+  ## nginx
+  $power_by = 'aisuhua'
 }

@@ -23,4 +23,7 @@ class nginx {
     hasstatus => true,
     require => Package['nginx']
   }
+
+  # reload 配置
+  contain nginx::reload
 }
