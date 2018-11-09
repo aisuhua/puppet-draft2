@@ -22,7 +22,7 @@ class rabbitmq {
     refreshonly => true
   }
 
-  package { ['rabbitmq-server']:
+  package { 'rabbitmq-server':
     ensure => installed,
     require => Exec['apt-update-rabbitmq']
   }
