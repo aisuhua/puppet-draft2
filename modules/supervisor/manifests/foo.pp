@@ -4,6 +4,9 @@ class supervisor::foo {
     ensure => file,
     source => 'puppet:///modules//supervisor/foo.conf',
     notify => Exec['supervisor-update'],
-    require => Service['supervisor']
+    require => [
+      Package['php7.2-cli'],
+      Service['supervisor']
+    ]
   }
 }

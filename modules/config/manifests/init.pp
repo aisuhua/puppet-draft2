@@ -5,13 +5,13 @@ class config {
 
   # resolver
   $nameservers = [
-    '192.168.1.46',
+    # '192.168.1.46',
     '223.5.5.5',
     '223.6.6.6'
   ]
 
   # poliop
-  $parent_proxy = '192.168.1.229:1080'
+  $parent_proxy = '192.168.31.138:1080'
 
   # IDC
   $idc_name = 'HN1'
