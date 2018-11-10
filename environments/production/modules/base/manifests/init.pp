@@ -7,6 +7,9 @@ class base {
   include resolver
 
   # 创建项目目录和机房标识文件
+  $idc_name = lookup('idc_name');
+  $idc_content = lookup('idc_content');
+
   file {
     default:
       group => 'www-data',
@@ -15,9 +18,9 @@ class base {
       ensure => directory;
     '/www/web':
       ensure => directory;
-    "/www/web/IDC_${$config::idc_name}":
+    "/www/web/IDC_${idc_name}" :
       ensure => file,
-      content => $config::idc_content,
+      content => "${idc_content}\n",
       mode => '0644';
   }
 

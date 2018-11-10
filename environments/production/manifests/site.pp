@@ -1,12 +1,24 @@
 # node 'puppetnode2.aisuhua.net' {
-node /^\w+node[1-3]\.aisuhua\.net$/ { # puppetnode.1.aisuhua.net
-
+node /^puppetnode\d+\.aisuhua\.net$/ {
   include roles
 
-  # notify { 'test2':
-  #   message => "$hostname, $fqdn, $customrole, suhua"
-  # }
 
-  include config
+  include base
+  include rsync
+  include php72
+  include php72::config
+  include php72::yar
+  include php72::phalcon
+  include php72::gearman
+  include php72::couchbase
+  include php72::xdebug
+  include nginx
+  include nginx::foo
+  include supervisor
+  include supervisor::foo
+  include logrotate::foo
   include polipo
+  include rabbitmq
+  include rabbitmq::config
+  include rabbitmq::management
 }

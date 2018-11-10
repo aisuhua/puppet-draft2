@@ -1,2 +1,2 @@
 ---
-polipo::parent_proxy: '192.168.31.141:1080'
+nginx::power_by: 'aisuhua'

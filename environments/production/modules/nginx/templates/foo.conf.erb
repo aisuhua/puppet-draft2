@@ -3,8 +3,8 @@ server {
     listen [::]:80 default_server;
     server_name _;
 
-    add_header X-Powered-By <%= scope['config::power_by'] %>;
-    add_header X-Server-Name <%= scope['config::idc_name'] %>_<%= @hostname %>;
+    add_header X-Powered-By <%= scope.call_function('lookup', ['nginx::power_by']) %>;
+    add_header X-Server-Name <%= scope.call_function('lookup', ['idc_name']) %>_<%= @hostname %>;
 
     include /etc/nginx/sites-available/status.conf;
 

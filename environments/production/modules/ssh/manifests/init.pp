@@ -1,5 +1,8 @@
 class ssh {
 
+  $port = lookup('ssh::port');
+  $permit_root_login = lookup('ssh::permit_root_login');
+
   package { 'openssh-server':
     ensure => installed,
   }
@@ -7,8 +10,8 @@ class ssh {
   augeas { 'sshd_config':
     context => '/files/etc/ssh/sshd_config',
     changes => [
-      "set Port ${config::ssh_port}",
-      "set PermitRootLogin ${config::ssh_permit_root_login}",
+      "set Port ${port}",
+      "set PermitRootLogin ${permit_root_login}",
     ],
     require => Package['openssh-server']
   }

@@ -1,13 +1,7 @@
 class polipo {
 
-  # $parent_proxy = $config::parent_proxy;
-
   package { 'polipo':
     ensure => installed;
-  }
-
-  notify { 'abc':
-    message => lookup('polipo::parent_proxy')
   }
 
   file { '/etc/polipo/config':
