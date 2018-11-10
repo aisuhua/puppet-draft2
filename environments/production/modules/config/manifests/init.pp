@@ -11,7 +11,7 @@ class config {
   ]
 
   # poliop
-  $parent_proxy = '192.168.31.138:1080'
+  # $parent_proxy = lookup('config::parent_proxy')
 
   # IDC
   $idc_name = 'HN1'

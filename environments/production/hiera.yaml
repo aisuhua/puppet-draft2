@@ -10,6 +10,8 @@ defaults:
 hierarchy:
   - name: "Per-node data (yaml version)"
     path: "nodes/%{::trusted.certname}.yaml"
+  - name: "Node Group data (yaml version)"
+    path: "roles/%{::customrole}.yaml"
   - name: "Other YAML hierarchy levels"
     paths:
       - "common.yaml"

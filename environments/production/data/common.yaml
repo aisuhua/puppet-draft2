@@ -1,0 +1,16 @@
+---
+# Global Variables
+myname: 'suhua'
+
+# Config Module
+polipo::parent_proxy: '192.168.31.138:1080'
+
+# Roles Module
+# https://www.reddit.com/r/Puppet/comments/4m1ny6/best_ways_to_define_workgroupsroles_with_puppet/
+# https://grokbase.com/t/gg/puppet-users/12c6h2zmrf/how-to-group-hosts
+# 所有服务器首先执行这一步
+roles:
+  puppetnode:
+    - puppetnode1
+    - puppetnode2
+    - puppetnode3

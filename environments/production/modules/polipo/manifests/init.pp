@@ -6,6 +6,10 @@ class polipo {
     ensure => installed;
   }
 
+  notify { 'abc':
+    message => lookup('polipo::parent_proxy')
+  }
+
   file { '/etc/polipo/config':
     ensure => file,
     content => template('polipo/conf.erb'),
