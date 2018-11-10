@@ -1,8 +1,5 @@
-# node 'puppetnode2.aisuhua.net' {
 node /^puppetnode\d+\.aisuhua\.net$/ {
   include roles
-
-
   include base
   include rsync
   include php72
