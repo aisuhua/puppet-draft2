@@ -1,0 +1,21 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+
+    add_header X-Powered-By <%= scope['config::power_by'] %>;
+    add_header X-Server-Name <%= scope['config::idc_name'] %>_<%= @hostname %>;
+
+    include /etc/nginx/sites-available/status.conf;
+
+    root /www/web/foo;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
