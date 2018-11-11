@@ -7,7 +7,7 @@ logFile = /var/log/polipo/polipo.log
 
 proxyAddress = "0.0.0.0"
 
-socksParentProxy = "scope['config::parent_proxy']"
+socksParentProxy = "scope.call_function('lookup', ['polipo::parent_proxy:'])"
 socksProxyType = socks5
 
 chunkHighMark = 50331648
