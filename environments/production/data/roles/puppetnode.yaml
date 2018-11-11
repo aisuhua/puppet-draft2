@@ -1,3 +1,2 @@
 ---
-nginx::power_by: 'roles'
-polipo::parent_proxy: '192.168.31.138:1080'
+nginx::power_by: 'aisuhua2'

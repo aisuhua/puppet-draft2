@@ -3,9 +3,6 @@
 idc_name: 'HN1'
 idc_content: 'HUANAN1'
 
-# Polipo Module
-polipo::parent_proxy: '192.168.31.138:1080'
-
 # Resolver Module
 resolver::nameservers:
   - '223.5.5.5'
@@ -16,7 +13,10 @@ ssh::port: 25680
 ssh::permit_root_login: 'yes'
 
 # Nginx Module
-nginx::power_by: 'common'
+nginx::power_by: 'aisuhua'
+
+# Polipo Module
+polipo::parent_proxy: '192.168.31.138:1080'
 
 # Roles Module
 # https://www.reddit.com/r/Puppet/comments/4m1ny6/best_ways_to_define_workgroupsroles_with_puppet/
