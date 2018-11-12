@@ -15,6 +15,5 @@ node default {
   # include logrotate::foo
   # include polipo
   # include rabbitmq
-  # include rabbitmq::config
   # include rabbitmq::management
 }

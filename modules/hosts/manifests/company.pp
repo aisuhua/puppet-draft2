@@ -39,4 +39,14 @@ class hosts::company {
     ],
     onlyif => "match *[ipaddr = '192.168.1.168'] size == 0"
   }
+
+  augeas { 'web1':
+    context => '/files/etc/hosts',
+    changes => [
+      "set 01/ipaddr 192.168.1.114",
+      "set 01/canonical web1.dev.aisuhua.net",
+      "set 01/alias[1] web1",
+    ],
+    onlyif => "match *[ipaddr = '192.168.1.114'] size == 0"
+  }
 }

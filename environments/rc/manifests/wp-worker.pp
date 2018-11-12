@@ -2,7 +2,7 @@
 # worker1.dev.aisuhua.net
 # worker2.dev.aisuhua.net
 #
-node /^worker\d+\.dev\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
+node /^worker\d+\.dev\.aisuhua\.net$/ {
   include roles
   include base
   include rsync

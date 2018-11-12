@@ -2,7 +2,7 @@
 # web1.dev.aisuhua.net
 # web2.dev.aisuhua.net
 #
-node /^web\d+\.dev\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
+node /^web\d+\.dev\.aisuhua\.net$/ {
   include roles
   include base
   include rsync
