@@ -1,8 +1,8 @@
-# wp web worker 机器
-# wp-worker1.192.168.1.150.hn1.aisuhua.net
-# wp-worker2.192.168.1.151.hn1.aisuhua.net
+# 内网 worker 机器
+# worker1.dev.aisuhua.net
+# worker2.dev.aisuhua.net
 #
-node /^wp-worker\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
+node /^worker\d+\.dev\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include roles
   include base
   include rsync

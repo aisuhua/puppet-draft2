@@ -18,7 +18,7 @@ ssh::permit_root_login: 'yes'
 nginx::power_by: 'aisuhua'
 
 # Polipo Module
-polipo::parent_proxy: '192.168.31.138:1080'
+polipo::parent_proxy: '192.168.1.229:1080'
 
 # Roles Module
 # https://www.reddit.com/r/Puppet/comments/4m1ny6/best_ways_to_define_workgroupsroles_with_puppet/

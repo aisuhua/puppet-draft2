@@ -1,3 +1,7 @@
+# 灰度机器
+# pre-release1.192.168.1.200.hn1.aisuhua.net
+# pre-release-worker1.192.168.1.201.hn1.aisuhua.net
+#
 node /^pre-release\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include roles
   include base
@@ -12,8 +16,8 @@ node /^pre-release\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include nginx::foo
   include supervisor
   include supervisor::foo
+  include logrotate
   include logrotate::foo
   include rabbitmq
-  include rabbitmq::config
   include rabbitmq::management
 }

@@ -1,3 +1,7 @@
+# wp web 机器
+# wp-web1.192.168.1.100.hn1.aisuhua.net
+# wp-web2.192.168.1.101.hn1.aisuhua.net
+#
 node /^wp-web\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include roles
   include base
