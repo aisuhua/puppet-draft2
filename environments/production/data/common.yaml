@@ -4,23 +4,23 @@ env::location: 'company'
 idc::name: 'HN1'
 idc::description: 'HUANAN1'
 
-# Resolver Module
+# Resolver
 resolver::nameservers:
   - '192.168.1.46'
   - '223.5.5.5'
   - '223.6.6.6'
 
-# SSH Module
+# SSH
 ssh::port: 25680
 ssh::permit_root_login: 'yes'
 
-# Nginx Module
+# Nginx
 nginx::power_by: 'aisuhua'
 
-# Polipo Module
+# Polipo
 polipo::parent_proxy: '192.168.1.229:1080'
 
-# Roles Module
+# Roles
 # https://www.reddit.com/r/Puppet/comments/4m1ny6/best_ways_to_define_workgroupsroles_with_puppet/
 # https://grokbase.com/t/gg/puppet-users/12c6h2zmrf/how-to-group-hosts
 # 所有服务器首先执行这一步

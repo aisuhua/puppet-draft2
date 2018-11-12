@@ -1,4 +1,4 @@
-# wp web worker 机器
+# wp worker 机器
 # wp-worker1.192.168.1.150.hn1.aisuhua.net
 # wp-worker2.192.168.1.151.hn1.aisuhua.net
 #
