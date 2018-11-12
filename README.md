@@ -4,6 +4,10 @@
 
 ## 服务器规划
 
+ puppetmaster
+ 
+- puppetmaster.aisuhua.net
+
 生产环境
 
 - wp-web1.192.168.1.100.hn1.aisuhua.net
