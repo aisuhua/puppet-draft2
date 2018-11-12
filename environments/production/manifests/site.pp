@@ -1,3 +1,4 @@
+# This is a full example
 node default {
   # include roles
   # include base
