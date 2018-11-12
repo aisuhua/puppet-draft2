@@ -29,7 +29,8 @@
 配置文件使用 yaml 实现，分成 3 个级别：服务器主机配置、分组配置、公共配置。
 puppet 默认只支持主机和公共配置，该例子添加了对服务器分组配置的支持。
 
-实现方式可参考 roles 模块，其原理是给属于同一分组的主机添加一个相同的 factor `customrole`，
+实现方式可参考 roles 模块，其原理是先对主机进行分组，然后给属于同一分组的主机添加一个相同的 factor `customrole`，
+具有相同 `customrole` 的主机使用同一分组的配置。
 主机分组信息写在 common.yaml，而分组配置所在目录写在 hirea.yaml。
 
 common.yaml 内容片段：
