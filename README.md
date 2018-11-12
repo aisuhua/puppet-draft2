@@ -65,11 +65,16 @@ hierarchy:
 
 ## 基本操作
 
-拉取最新配置
+应用生产环境
 
 ```sh
 shell> puppet agent --test --environment production --server puppetmaster.aisuhua.net
-agent --test --environment rc --server puppetmaster.aisuhua.net
+```
+
+应用内网环境
+
+```sh
+shell> agent --test --environment rc --server puppetmaster.aisuhua.net
 ```
 
 puppetmaster 端也可以利用 pssh 等工具批量登录远程主机并执行拉取操作
