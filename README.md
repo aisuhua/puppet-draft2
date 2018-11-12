@@ -2,43 +2,25 @@
 
 使用 [puppet](https://puppet.com/) 大规模部署站点的一个例子。
 
-## 环境
+## 服务器规划
 
-### 生产环境
-
-web
+生产环境
 
 - wp-web1.192.168.1.100.hn1.aisuhua.net
 - wp-web2.192.168.1.101.hn1.aisuhua.net 
-
-worker
-
 - wp-worker1.192.168.1.150.hn1.aisuhua.net
 - wp-worker2.192.168.1.151.hn1.aisuhua.net
-
-rabbitmq
-
 - wp-rabbitmq1.192.168.1.250.hn1.aisuhua.net
 
-### 灰度环境
-
-web
+灰度环境
 
 - pre-release1.192.168.1.200.hn1.aisuhua.net
-
-worker
-
 - pre-release-worker1.192.168.1.201.hn1.aisuhua.net
 
-### 内网环境
-
-web
+内网环境
 
 - web1.dev.aisuhua.net
 - web2.dev.aisuhua.net
-
-worker
-
 - worker1.dev.aisuhua.net
 - worker2.dev.aisuhua.net
 
