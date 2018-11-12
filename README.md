@@ -60,8 +60,8 @@ hierarchy:
 
 ### 使用方法
 
-首次请求 puppetmaster 时应先仅加载 `roles` 模块，让其先生成 `customrole` factor，此后的请求再加载其他模块。
-因为主机必须要先有 `customrole` 才会应用分组的配置，否则首次请求时分组配置会无效。
+首次请求 puppetmaster 时应先仅加载 `roles` 模块，让其先根据分组配置生成对应的 `customrole` factor，此后的请求再加载其他模块。
+因为主机必须要先有 `customrole` 才知道属于哪个分组，才会使用分组的配置，否则首次请求时分组配置会无效。
 
 ## 基本操作
 
