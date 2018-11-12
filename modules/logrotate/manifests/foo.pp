@@ -1,4 +1,4 @@
-class logrotate::foo inherits logrotate {
+class logrotate::foo inherits logrotate::config {
 
   file { '/etc/logrotate.d/foo':
     ensure => file,

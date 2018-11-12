@@ -4,6 +4,7 @@
 class roles {
 
   $myhost = $::facts['hostname']
+
   # Grab all role assignments from hiera
   $data = lookup('roles')
   # Filter out the key/value pair that contains the hostname in the value (assuming only one result)

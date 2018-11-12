@@ -1,0 +1,6 @@
+---
+# Global Variables
+idc::description: 'HUANAN2'
+
+# Nginx Module
+nginx::power_by: 'aisuhua2'

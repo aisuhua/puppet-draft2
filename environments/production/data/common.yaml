@@ -1,10 +1,12 @@
 ---
 # Global Variables
-idc_name: 'HN1'
-idc_content: 'HUANAN1'
+env::location: 'company'
+idc::name: 'HN1'
+idc::description: 'HUANAN1'
 
 # Resolver Module
 resolver::nameservers:
+  - '192.168.1.46'
   - '223.5.5.5'
   - '223.6.6.6'
 
@@ -23,7 +25,12 @@ polipo::parent_proxy: '192.168.31.138:1080'
 # https://grokbase.com/t/gg/puppet-users/12c6h2zmrf/how-to-group-hosts
 # 所有服务器首先执行这一步
 roles:
-  puppetnode:
-    - puppetnode1
-    - puppetnode2
-    - puppetnode3
+  wp-web:
+    - 'wp-web1'
+    - 'wp-web2'
+  wp-worker:
+    - 'wp-worker1'
+    - 'wp-worker2'
+  pre-release:
+    - 'pre-release1'
+    - 'pre-release-worker1'

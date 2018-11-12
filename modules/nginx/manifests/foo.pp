@@ -15,12 +15,7 @@ class nginx::foo inherits nginx::config {
       content => "<?php phpinfo();?>\n";
     '/www/web/foo/worker.php':
       ensure => file,
-      content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>',
-      notify => Exec['supervisor-update'],
-      require => [
-        File['/www/web/foo'],
-        Package['supervisor']
-      ]
+      content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>';
   }
 
   file { '/etc/nginx/sites-enabled/foo.conf':

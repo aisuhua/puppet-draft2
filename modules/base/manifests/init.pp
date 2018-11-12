@@ -1,15 +1,15 @@
 class base {
 
+  # 自定义 factor customrole，用于对服务器节点进行分组
+  include roles
   # 修改 hosts
-  include hosts
-
+  include hosts::company
   # 修改 DNS
   include resolver
 
   # 创建项目目录和机房标识文件
-  $idc_name = lookup('idc_name');
-  $idc_content = lookup('idc_content');
-
+  $idc_name = lookup('idc::name');
+  $idc_description = lookup('idc::description');
   file {
     default:
       group => 'www-data',
@@ -20,7 +20,7 @@ class base {
       ensure => directory;
     "/www/web/IDC_${idc_name}" :
       ensure => file,
-      content => "${idc_content}\n",
+      content => $idc_description,
       mode => '0644';
   }
 
@@ -39,7 +39,6 @@ class base {
     ]:
     ensure => installed,
   }
-
   # Fix php7 FPM support
   # https://github.com/hercules-team/augeas/commit/428e3c7961657f211e3427b22ad72119068ae2ca
   file { '/usr/share/augeas/lenses/dist/php.aug':
@@ -47,7 +46,6 @@ class base {
     source => "puppet:///modules//base/php.aug",
     require => Package['augeas-tools']
   }
-
   # 用于消息传输的压缩
   package { 'msgpack':
     ensure => installed,
@@ -56,24 +54,18 @@ class base {
 
   # 安装、配置和启动 ssh
   include ssh
-
   # 安装、配置和定时校准时间 ntpdate
   include ntpdate
-
   # 优化系统内核参数
   include sysctl
-
   # 增加文件描述符限制
   include limits
   include system
-
   # 添加 suhua 和 dba 用户
   include user::aisuhua
   include user::dba
-
   # 用户授权
   include privileges
-
   # 使用国内镜像
   include apt
   # include sourcelist # 有问题暂不启用

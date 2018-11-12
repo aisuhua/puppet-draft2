@@ -27,6 +27,8 @@ class rabbitmq {
     require => Exec['apt-update-rabbitmq']
   }
 
+  contain rabbitmq::config
+
   service { 'rabbitmq-server':
     enable => true,
     ensure => running,

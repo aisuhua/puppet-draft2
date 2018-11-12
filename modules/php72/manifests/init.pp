@@ -52,6 +52,8 @@ class php72 {
     update-alternatives --set phpize /usr/bin/phpize7.2;"
   }
 
+  contain php72::config
+
   # 启动 PHP-FPM
   service { 'php7.2-fpm':
     enable => true,
