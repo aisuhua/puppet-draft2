@@ -1,6 +1,6 @@
 # Puppet Draft2
 
-使用 [puppet](https://puppet.com/) 大规模部署站点的一个例子。
+使用 [puppet](https://puppet.com/) 多主机部署站点的例子，支持生产、灰度和内网环境。
 
 ## 服务器规划
 
