@@ -26,6 +26,4 @@ class nginx {
     hasstatus => true,
     require => Package['nginx']
   }
-
-
 }
