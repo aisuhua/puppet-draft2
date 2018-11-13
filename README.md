@@ -96,3 +96,39 @@ shell> cat hosts
 192.168.1.168:25680
 192.168.1.129:25680
 ```
+
+## Nginx 模块
+
+nginx 模块加入了对灰度环境、获取 PHP-FPM 和 Nginx 运行状态以及跨域调用的配置示例。
+
+### 灰度环境
+
+请参考文件 foo.com.erb、prerelease.conf.erb 和 upstream.conf。
+
+### 获取状态信息
+
+请参考文件 status.conf 
+
+### 跨域
+
+假设有两个站点 foo.aisuhua.com 和 demo.aisuhua.com
+
+- 当访问 http://demo.aisuhua.com/cors_client.html 可观察服务端如何使用 PHP 实现对跨域的支持；(需先注释掉 cors.conf )
+- 当访问 http://demo.aisuhua.com/nginx_cors_client.html 可观察如何使用 Nginx 实现跨域支持；
+
+跨域相关知识
+
+- 当浏览器发现页面要做出跨域请求时，会自动携带 `Origin:` HTTP 报头，表明来自哪个域名的请求；
+    - 例如：`Origin:http://demo.aisuhua.com`
+- 服务端需返回 `Access-Control-Allow-Origin` 报头，表明支持该域名进行跨域请求；
+    - `Access-Control-Allow-Origin: *` 表示支持所有域名发起的跨域请求；
+    - `Access-Control-Allow-Origin: http://demo.aisuhua.com` 表示只当前 demo 域名的跨域请求；
+- 当发起 Ajax 请求时设置了 `xhr.withCredentials = true`，那么在跨域调用时会带上 Cookie 信息；
+    - 所带的 Cookie 信息必须是当前所请求域名具有访问权限的，例如 Cookie 的 domain 为 `.aisuhua.com`；
+    - 同时服务端也必须返回 `Access-Control-Allow-Credentials: true`，表明接受该站点携带 Cookie 信息的请求；
+    - 在此条件下，`Access-Control-Allow-Origin` 的值不能是通配符，必须是具体的域名，比如：`Access-Control-Allow-Origin：http://demo.aisuhua.com`；
+- 当浏览器认为本次跨域请求并非「简单请求」时，会先进行预检请求，即使用 `OPTIONS` 动词进行请求；
+    - 并非所有请求都需要进行预检，是否需要预检有时也取决于浏览器本身的实现；
+    - 当服务器返回如 `Access-Control-Max-Age：86400` 时，可以要求浏览器对本次的 OPTIONS 请求结果进行缓存 1 天，也就不会每次都进行预检；
+    
+更多的实现细节和参考文献可以直接看实现的代码片段。
