@@ -6,9 +6,16 @@ class nginx::config {
     notify => Service['nginx']
   }
 
+  file { '/etc/nginx/sites-available/headers.conf':
+    ensure => file,
+    content => template('nginx/headers.conf.erb'),
+    require => Package['nginx'],
+    notify => Service['nginx']
+  }
+
   file { '/etc/nginx/sites-available/status.conf':
     ensure => file,
-    source => 'puppet:///modules/nginx//status.conf',
+    source => 'puppet:///modules/nginx/status.conf',
     require => Package['nginx'],
     notify => Service['nginx']
   }
