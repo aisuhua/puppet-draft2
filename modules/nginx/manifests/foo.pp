@@ -16,6 +16,9 @@ class nginx::foo inherits nginx::config {
     '/www/web/foo/worker.php':
       ensure => file,
       content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>';
+    '/www/web/foo/cors_server.php':
+      ensure => file,
+      source => 'puppet:///modules/nginx/code/cors_server.php',
   }
 
   file { '/etc/nginx/sites-enabled/foo.conf':

@@ -1,2 +1,3 @@
+# 添加自定义 HTTP header
 add_header X-Powered-By <%= scope.call_function('lookup', ['nginx::power_by']) %>;
 add_header X-Server-Name <%= scope.call_function('lookup', ['idc::name']) %>_<%= @hostname %>;

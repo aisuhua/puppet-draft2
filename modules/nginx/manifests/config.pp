@@ -34,6 +34,13 @@ class nginx::config {
     notify => Service['nginx']
   }
 
+  file { '/etc/nginx/snippets/cors.conf':
+    ensure => file,
+    source => 'puppet:///modules/nginx/cors.conf',
+    require => Package['nginx'],
+    notify => Service['nginx']
+  }
+
   file { '/etc/nginx/snippets/prerelease.conf':
     ensure => file,
     content => template('nginx/prerelease.conf.erb'),

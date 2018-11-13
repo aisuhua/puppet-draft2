@@ -1,0 +1,26 @@
+<html>
+<body>
+<script>
+    // @see https://segmentfault.com/a/1190000011145364
+
+    var xhr = new XMLHttpRequest(); // IE8/9需用window.XDomainRequest兼容
+
+    // 前端设置是否带cookie
+    // 所请求域名对cookie需有权限访问，例如可将域设置成 .aisuhua.com
+    xhr.withCredentials = true;
+
+    xhr.open('post', 'http://foo.aisuhua.com/cors_server.php', true);
+
+    // 触发浏览器 OPTIONS 预检
+    // @see https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS#预检请求
+    xhr.setRequestHeader('Content-Type', 'application/xml');
+    xhr.send();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            alert(xhr.responseText);
+        }
+    };
+</script>
+</body>
+</html>

@@ -14,6 +14,7 @@ node /^wp-web\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include php72::xdebug
   include nginx
   include nginx::foo
+  include nginx::demo
   include logrotate
   include logrotate::foo
 }

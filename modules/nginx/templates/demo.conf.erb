@@ -1,12 +1,13 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name foo.aisuhua.com;
+    server_name demo.aisuhua.com;
 
     include /etc/nginx/snippets/headers.conf;
     include /etc/nginx/snippets/status.conf;
+    # include /etc/nginx/snippets/cors.conf;
 
-    root /www/web/foo;
+    root /www/web/demo;
 
     location / {
         include /etc/nginx/snippets/prerelease.conf;
