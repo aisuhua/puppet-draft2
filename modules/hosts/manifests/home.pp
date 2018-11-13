@@ -30,13 +30,23 @@ class hosts::home {
     onlyif => "match *[ipaddr = '192.168.31.222'] size == 0"
   }
 
-  augeas { 'wp-worker1':
+  augeas { 'pre-release1':
     context => '/files/etc/hosts',
     changes => [
-      "set 01/ipaddr 192.168.31.186",
-      "set 01/canonical wp-worker1.192.168.1.150.hn1.aisuhua.net",
-      "set 01/alias[1] wp-worker1",
+      "set 01/ipaddr 192.168.31.223",
+      "set 01/canonical pre-release1.192.168.1.200.hn1.aisuhua.net",
+      "set 01/alias[1] pre-release1",
     ],
-    onlyif => "match *[ipaddr = '192.168.31.186'] size == 0"
+    onlyif => "match *[ipaddr = '192.168.31.223'] size == 0"
+  }
+
+  augeas { 'pre-release2':
+    context => '/files/etc/hosts',
+    changes => [
+      "set 01/ipaddr 192.168.31.224",
+      "set 01/canonical pre-release1.192.168.1.200.hn1.aisuhua.net",
+      "set 01/alias[1] pre-release1",
+    ],
+    onlyif => "match *[ipaddr = '192.168.31.224'] size == 0"
   }
 }

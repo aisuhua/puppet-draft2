@@ -3,7 +3,7 @@ class base {
   # 自定义 factor customrole，用于对服务器节点进行分组
   include roles
   # 修改 hosts
-  include hosts::company
+  include hosts
   # 修改 DNS
   include resolver
 
