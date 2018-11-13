@@ -4,7 +4,7 @@
 
 ## 服务器规划
 
- puppetmaster
+puppetmaster
  
 - puppetmaster.aisuhua.net
 

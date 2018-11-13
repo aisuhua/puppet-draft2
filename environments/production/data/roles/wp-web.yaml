@@ -1,6 +1,3 @@
 ---
-# Global Variables
-idc::description: 'HUANAN2'
-
 # Nginx
-nginx::power_by: 'aisuhua2'
+# nginx::power_by: 'wp-web'
