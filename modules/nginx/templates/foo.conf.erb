@@ -1,18 +1,20 @@
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    server_name _;
+    # listen 80 default_server;
+    # listen [::]:80 default_server;
+    server_name foo.aisuhua.com;
 
-    include /etc/nginx/sites-available/headers.conf;
-    include /etc/nginx/sites-available/status.conf;
+    include /etc/nginx/snippets/headers.conf;
+    include /etc/nginx/snippets/status.conf;
 
     root /www/web/foo;
 
     location / {
+        include /etc/nginx/snippets/prerelease.conf;
         try_files $uri $uri/ =404;
     }
 
     location ~ \.php$ {
+        include /etc/nginx/snippets/prerelease.conf;
         include snippets/fastcgi-php.conf;
         fastcgi_pass 127.0.0.1:9000;
     }
