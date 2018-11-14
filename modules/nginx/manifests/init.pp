@@ -15,7 +15,6 @@ class nginx {
     require => Exec['update-nginx-stable']
   }
 
-  contain nginx::config
   contain nginx::reload
 
   # 启动 nginx

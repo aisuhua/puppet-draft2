@@ -5,5 +5,6 @@ node /^wp-rabbitmq\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include roles
   include base
   include rabbitmq
+  include rabbitmq::config
   include rabbitmq::management
 }
