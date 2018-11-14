@@ -15,8 +15,6 @@ class nginx {
     require => Exec['update-nginx-stable']
   }
 
-  contain nginx::reload
-
   # 启动 nginx
   service { 'nginx':
     enable => true,
@@ -25,4 +23,6 @@ class nginx {
     hasstatus => true,
     require => Package['nginx']
   }
+
+  contain nginx::reload
 }
