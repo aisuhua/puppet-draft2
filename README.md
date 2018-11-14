@@ -8,7 +8,7 @@ puppetmaster
  
 - puppetmaster.aisuhua.net
 
-LB（load balance）
+load balance
 
 - lb1.192.168.1.111.hn1.aisuhua.net
 
