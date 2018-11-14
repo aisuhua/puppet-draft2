@@ -1,3 +1,8 @@
+# 负载均衡的实现
+# @see http://nginx.org/en/docs/http/load_balancing.html
+# @see https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/
+# @see https://help.aliyun.com/product/27537.html
+#
 class lb::config {
 
   file { '/etc/nginx/conf.d':

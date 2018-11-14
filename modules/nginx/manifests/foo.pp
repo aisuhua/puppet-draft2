@@ -12,7 +12,7 @@ class nginx::foo inherits nginx::config {
       content => "<center><h1>Hello, World!</h1></center>\n";
     '/www/web/foo/index.php':
       ensure => file,
-      content => "<?php phpinfo();?>\n";
+      content => "<?php var_dump(\$_SERVER);?>\n";
     '/www/web/foo/worker.php':
       ensure => file,
       content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>';
