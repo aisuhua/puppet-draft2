@@ -1,12 +1,12 @@
 ---
 # Global Variables
-env::location: 'home'
+env::location: 'company'
 idc::name: 'HN1'
 idc::description: 'HUANAN1'
 
 # Resolver
 resolver::nameservers:
-#  - '192.168.1.46'
+  - '192.168.1.46'
   - '223.5.5.5'
   - '223.6.6.6'
 
