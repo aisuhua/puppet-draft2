@@ -8,6 +8,10 @@ puppetmaster
  
 - puppetmaster.aisuhua.net
 
+LB（load balance）
+
+- lb1.192.168.1.111.hn1.aisuhua.net
+
 生产环境
 
 - wp-web1.192.168.1.100.hn1.aisuhua.net
