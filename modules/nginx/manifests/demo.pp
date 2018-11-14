@@ -15,10 +15,10 @@ class nginx::demo inherits nginx::config {
       content => "<?php echo 'demo';?>\n";
     '/www/web/demo/cors_client.html':
       ensure => file,
-      source => 'puppet:///modules/nginx/code/cors_client.html';
+      source => 'puppet:///modules/nginx/other/code/cors_client.html';
     '/www/web/demo/nginx_cors_client.html':
       ensure => file,
-      source => 'puppet:///modules/nginx/code/nginx_cors_client.html',
+      source => 'puppet:///modules/nginx/other/code/nginx_cors_client.html',
   }
 
   file { '/etc/nginx/sites-enabled/demo.conf':

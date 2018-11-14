@@ -18,10 +18,10 @@ class nginx::foo inherits nginx::config {
       content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>';
     '/www/web/foo/cors_server.php':
       ensure => file,
-      source => 'puppet:///modules/nginx/code/cors_server.php';
+      source => 'puppet:///modules/nginx/other/code/cors_server.php';
     '/www/web/foo/nginx_cors_server.php':
       ensure => file,
-      source => 'puppet:///modules/nginx/code/nginx_cors_server.php',
+      source => 'puppet:///modules/nginx/other/code/nginx_cors_server.php',
   }
 
   file { '/etc/nginx/sites-enabled/foo.conf':
