@@ -1,13 +1,14 @@
 # 只有生产环境才需要进行灰度参数判断
 # 支持使用 Cookie 和 GET 参数切换到灰度环境
+#
 <% if @hostname != "pre-release1" and @hostname != "pre-release2" %>
 proxy_set_header Host $host;
 if ( $cookie_GIVEMEFIVE = "1" ) {
-    proxy_pass "http://prerelease";
+    proxy_pass "http://pre_release";
     break;
 }
 if ( $arg_GIVEMEFIVE = "1" ) {
-    proxy_pass "http://prerelease";
+    proxy_pass "http://pre_release";
     break;
 }
 <% end %>

@@ -10,12 +10,12 @@ server {
     root /www/web/foo;
 
     location / {
-        include /etc/nginx/snippets/prerelease.conf;
+        include /etc/nginx/snippets/pre_release.conf;
         try_files $uri $uri/ =404;
     }
 
     location ~ \.php$ {
-        include /etc/nginx/snippets/prerelease.conf;
+        include /etc/nginx/snippets/pre_release.conf;
         include snippets/fastcgi-php.conf;
         fastcgi_pass 127.0.0.1:9000;
     }

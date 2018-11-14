@@ -1,8 +1,10 @@
 # 跨域请求统一配置
+# 为避免反向代理后 Access-Control-Allow-Origin 重复而报错，灰度不返回跨域报头
 # @see https://segmentfault.com/a/1190000011145364
 # @see https://gist.github.com/Stanback/7145487
 # @see https://stackoverflow.com/questions/27955233/nginx-config-for-cors-add-header-directive-is-not-allowed
 #
+<% if @hostname != "pre-release1" and @hostname != "pre-release2" %>
 set $cors '';
 set $access_origin '';
 set $access_credentials '';
@@ -43,3 +45,4 @@ add_header 'Access-Control-Allow-Credentials' "$access_credentials";
 add_header 'Access-Control-Allow-Methods' "$access_methods";
 add_header 'Access-Control-Max-Age' "$access_age";
 add_header 'Access-Control-Allow-Headers' "$access_headers";
+<% end %>
