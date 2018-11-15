@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 获取用户IP
+ *
+ * @link https://devco.re/blog/2014/06/19/client-ip-detection/
+ */
 echo 'Client IP: ', get_client_ip(), PHP_EOL;
 
 function get_client_ip()

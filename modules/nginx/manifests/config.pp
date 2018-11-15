@@ -2,7 +2,7 @@ class nginx::config {
 
   File {
     require => Package['nginx'],
-    notify => Service['nginx']
+    notify => Exec['nginx-reload']
   }
 
   # file { '/etc/nginx/sites-enabled/default':

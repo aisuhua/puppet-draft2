@@ -140,7 +140,6 @@ nginx 模块加入了对灰度环境、获取 PHP-FPM 和 Nginx 运行状态以�
 ### 获取用户IP地址
 
 无论是通过 LB 或者直接访问后端服务器，在后端都应能获取到用户的真实 IP 地址。
-
 这里要借助 Nginx 的 `proxy` 相关指令来实现，其代码片段如下：
 
 ```nginx
@@ -152,7 +151,6 @@ proxy_set_header X-Forwarded-Proto $scheme;
 
 发生 `proxy_pass` 的地方都应该传递这些报头，
 具体参考 LB模块 的 nginx.conf 和 Nginx 模块的 pre_release.conf.erb 实现。
-
 在服务端可以通过下面的方式获取，以 PHP 为例：
 
 ```php
