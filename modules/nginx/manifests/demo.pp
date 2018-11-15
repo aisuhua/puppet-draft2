@@ -1,4 +1,4 @@
-class nginx::demo inherits nginx::config {
+class nginx::demo {
 
   file {
     default:
@@ -18,7 +18,12 @@ class nginx::demo inherits nginx::config {
       source => 'puppet:///modules/nginx/other/code/cors_client.html';
     '/www/web/demo/nginx_cors_client.html':
       ensure => file,
-      source => 'puppet:///modules/nginx/other/code/nginx_cors_client.html',
+      source => 'puppet:///modules/nginx/other/code/nginx_cors_client.html';
+    '/www/web/demo/get_client_ip.php':
+      ensure => file,
+      source => 'puppet:///modules/nginx/other/code/get_client_ip.php';
+    '/www/web/demo/client_ip.php':
+      ensure => absent;
   }
 
   file { '/etc/nginx/sites-enabled/demo.conf':

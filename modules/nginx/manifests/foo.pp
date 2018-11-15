@@ -1,4 +1,4 @@
-class nginx::foo inherits nginx::config {
+class nginx::foo {
 
   file {
     default:
@@ -21,7 +21,12 @@ class nginx::foo inherits nginx::config {
       source => 'puppet:///modules/nginx/other/code/cors_server.php';
     '/www/web/foo/nginx_cors_server.php':
       ensure => file,
-      source => 'puppet:///modules/nginx/other/code/nginx_cors_server.php',
+      source => 'puppet:///modules/nginx/other/code/nginx_cors_server.php';
+    '/www/web/foo/get_client_ip.php':
+      ensure => file,
+      source => 'puppet:///modules/nginx/other/code/get_client_ip.php';
+    '/www/web/foo/client_ip.php':
+      ensure => absent;
   }
 
   file { '/etc/nginx/sites-enabled/foo.conf':
