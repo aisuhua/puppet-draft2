@@ -9,6 +9,10 @@ server {
 
     root /www/web/foo;
 
+    # https://github.com/denysvitali/nginx-error-pages
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+
     location / {
         include /etc/nginx/snippets/pre_release.conf;
         try_files $uri $uri/ =404;
@@ -18,5 +22,11 @@ server {
         include /etc/nginx/snippets/pre_release.conf;
         include snippets/fastcgi-php.conf;
         fastcgi_pass 127.0.0.1:9000;
+    }
+
+    # https://stackoverflow.com/questions/7526996/how-to-get-nginx-to-always-return-a-custom-404-for-the-default-host
+    # http://nginx.org/en/docs/http/ngx_http_core_module.html#error_page
+    location ~ /(404|50x)\.html {
+        internal;
     }
 }

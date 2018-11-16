@@ -66,6 +66,9 @@ class base {
   include user::dba
   # 用户授权
   include privileges
+  # 初始化 vim
+  include vim
+
   # 使用国内镜像
   include apt
   # include sourcelist # 有问题暂不启用

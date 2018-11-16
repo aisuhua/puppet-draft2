@@ -1,3 +1,6 @@
-# 添加自定义 HTTP header
-add_header X-Powered-By <%= scope.call_function('lookup', ['nginx::power_by']) %>;
-add_header X-Server-Name <%= scope.call_function('lookup', ['idc::name']) %>_<%= @hostname %>;
+# @summary 添加自定义 HTTP header
+# @link https://serverfault.com/questions/418709/nginx-add-header-for-a-50-page
+# @link http://nginx.org/en/docs/http/ngx_http_headers_module.html
+#
+add_header X-Powered-By <%= scope.call_function('lookup', ['nginx::power_by']) %> always;
+add_header X-Server-Name <%= scope.call_function('lookup', ['idc::name']) %>_<%= @hostname %> always;

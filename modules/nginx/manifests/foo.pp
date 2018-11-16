@@ -9,10 +9,16 @@ class nginx::foo {
       ensure => directory;
     '/www/web/foo/index.html':
       ensure => file,
-      content => "<center><h1>Hello, World!</h1></center>\n";
+      content => "<center><h1>Hello, World!</h1></center>";
     '/www/web/foo/index.php':
       ensure => file,
-      content => "<?php var_dump(\$_SERVER);?>\n";
+      content => "<?php var_dump(\$_SERVER);?>";
+    '/www/web/foo/404.html':
+      ensure => file,
+      content => "404 page";
+    '/www/web/foo/50x.html':
+      ensure => file,
+      content => "50x page";
     '/www/web/foo/worker.php':
       ensure => file,
       content => '<?php $i = 0; while(true) {echo $i++, PHP_EOL; sleep(1);} ;?>';
