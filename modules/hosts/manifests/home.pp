@@ -59,4 +59,14 @@ class hosts::home {
     ],
     onlyif => "match *[ipaddr = '192.168.31.220'] size == 0"
   }
+
+  augeas { 'lb2':
+    context => '/files/etc/hosts',
+    changes => [
+      "set 01/ipaddr 192.168.31.221",
+      "set 01/canonical lb2.192.168.1.112.hn1.aisuhua.net",
+      "set 01/alias[1] lb2",
+    ],
+    onlyif => "match *[ipaddr = '192.168.31.221'] size == 0"
+  }
 }

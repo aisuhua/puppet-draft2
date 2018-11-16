@@ -22,6 +22,6 @@ class keepalived {
     enable => true,
     ensure => running,
     hasrestart => true,
-    hasstatus=> false
+    hasstatus=> true
   }
 }
