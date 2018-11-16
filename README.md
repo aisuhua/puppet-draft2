@@ -11,6 +11,7 @@ puppetmaster
 load balance
 
 - lb1.192.168.1.111.hn1.aisuhua.net
+- lb2.192.168.1.112.hn1.aisuhua.net
 
 生产环境
 
@@ -23,7 +24,7 @@ load balance
 灰度环境
 
 - pre-release1.192.168.1.200.hn1.aisuhua.net
-- pre-release-worker1.192.168.1.201.hn1.aisuhua.net
+- pre-release2.192.168.1.201.hn1.aisuhua.net
 
 内网环境
 
