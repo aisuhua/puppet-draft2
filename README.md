@@ -8,7 +8,7 @@ puppetmaster
  
 - puppetmaster.aisuhua.net
 
-load balance
+load balance (nginx + keepalived 实现双主高可用)
 
 - lb1.192.168.1.111.hn1.aisuhua.net
 - lb2.192.168.1.112.hn1.aisuhua.net
