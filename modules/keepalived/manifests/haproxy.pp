@@ -6,6 +6,22 @@
 # @link http://www.ha97.com/899.html
 # @link https://askubuntu.com/questions/547289/how-can-i-from-cli-assign-multiple-ip-addresses-to-one-interface
 
-class keepalived {
+class keepalived::haproxy {
 
+  package { 'keepalived':
+    ensure => installed
+  }
+
+  file { '/etc/keepalived/keepalived.conf':
+    ensure => present,
+    source => "puppet:///modules/keepalived/haproxy/${fqdn}.conf",
+    notify => Service['keepalived']
+  }
+
+  service { 'keepalived':
+    enable => true,
+    ensure => running,
+    hasrestart => true,
+    hasstatus=> true
+  }
 }

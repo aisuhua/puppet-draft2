@@ -1,5 +1,7 @@
 frontend public
     bind *:80
+    mode http
+    option forwardfor
     default_backend app
 
 # https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4.2-balance
@@ -13,6 +15,7 @@ backend app
 # listen wp_web
 #     bind *:80
 #     mode http
+#     option forwardfor
 #     balance roundrobin
 #     server wp-web1 192.168.31.201:80 check
 #     server wp-web2 192.168.31.202:80 check

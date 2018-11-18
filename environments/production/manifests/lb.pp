@@ -5,11 +5,14 @@
 node /^lb\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include roles
   include base
+
   # include nginx
   # include lb::config
   # include lb::foo
   # include lb::demo
-  # include keepalived
+  # include keepalived::nginx
+
   include haproxy
   include haproxy::wp_web
+  include keepalived::haproxy
 }
