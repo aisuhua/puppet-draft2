@@ -1,4 +1,4 @@
-# @summary Keepalived 保持 Nginx 高可用示例
+# @summary Keepalived 保持 haproxy 主主负载均衡高可用示例
 # @link http://blog.51cto.com/nmshuishui/1405486
 #
 class keepalived::haproxy {
