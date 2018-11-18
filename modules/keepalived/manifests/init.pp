@@ -8,4 +8,17 @@
 
 class keepalived {
 
+  package { 'keepalived':
+    ensure => installed
+  }
+
+  service { 'keepalived':
+    enable => true,
+    ensure => running,
+    hasrestart => true,
+    hasstatus=> true,
+    require => File['/etc/keepalived/keepalived.conf']
+  }
+
+  contain keepalived::reload
 }

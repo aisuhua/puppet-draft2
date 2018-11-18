@@ -8,20 +8,9 @@
 
 class keepalived::nginx {
 
-  package { 'keepalived':
-    ensure => installed
-  }
-
   file { '/etc/keepalived/keepalived.conf':
     ensure => present,
     source => "puppet:///modules/keepalived/nginx/${fqdn}.conf",
-    notify => Service['keepalived']
-  }
-
-  service { 'keepalived':
-    enable => true,
-    ensure => running,
-    hasrestart => true,
-    hasstatus=> true
+    notify => Exec['keepalived-reload']
   }
 }

@@ -10,4 +10,6 @@ class haproxy {
     hasrestart => true,
     hasstatus=> true
   }
+
+  contain haproxy::reload
 }
