@@ -1,22 +1,38 @@
-frontend public
+frontend http-in
     bind *:80
     mode http
-    option forwardfor
-    http-request set-header X-Forwarded-Proto http
-    default_backend app
 
-# https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#4.2-balance
-backend app
+    # 自定义 HTTP header
+    option forwardfor
+    http-request set-header X-Forwarded-Port %[dst_port]
+    http-request set-header X-Forwarded-Proto https if { ssl_fc }
+    http-request set-header X-Real-IP %[src]
+    http-response set-header X-LB-Name <%= scope.call_function('lookup', ['idc::name']) %>_<%= @hostname %>
+
+    # 虚拟主机
+    # https://gist.github.com/daemonza/1984806
+    # https://www.digitalocean.com/community/tutorials/how-to-host-multiple-web-sites-with-nginx-and-haproxy-using-lxd-on-ubuntu-16-04
+    # http://blog.51cto.com/leejia/1421882
+
+    # foo.aisuhua.com
+    acl is_foo_aisuhua_com hdr_end(host) -i foo.aisuhua.com
+    use_backend foo-aisuhua-com if is_foo_aisuhua_com
+
+    # demo_aisuhua_com
+    acl is_demo_aisuhua_com hdr_end(host) -i demo.aisuhua.com
+    use_backend demo-aisuhua-com if is_demo_aisuhua_com
+
+    default_backend wp-web
+
+backend foo-aisuhua-com
+    balance roundrobin
+    server server1 192.168.1.116:80 check
+
+backend demo-aisuhua-com
+    balance roundrobin
+    server server1 192.168.1.100:80 check
+
+backend wp-web
     balance roundrobin
     server wp-web1 192.168.1.143:80 check
     server wp-web2 192.168.1.100:80 check
-
-# 另外一种写法
-# http://cbonte.github.io/haproxy-dconv/1.6/configuration.html#2.5
-# listen wp_web
-#     bind *:80
-#     mode http
-#     option forwardfor
-#     balance roundrobin
-#     server wp-web1 192.168.1.143:80 check
-#     server wp-web2 192.168.1.100:80 check
