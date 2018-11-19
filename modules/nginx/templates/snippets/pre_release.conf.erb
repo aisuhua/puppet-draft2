@@ -2,8 +2,9 @@
 # 支持使用 Cookie 和 GET 参数切换到灰度环境
 #
 <% if @hostname != "pre-release1" and @hostname != "pre-release2" %>
-# proxy_set_header Host $host;
-include /etc/nginx/proxy_params;
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 if ( $cookie_GIVEMEFIVE = "1" ) {
     proxy_pass "http://pre_release";
     break;
