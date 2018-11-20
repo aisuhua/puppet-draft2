@@ -7,15 +7,16 @@ node /^lb\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
   include base
 
   # nginx + keepalived
-  # include nginx
-  # include lb::config
-  # include lb::foo
-  # include lb::demo
-  # include keepalived::nginx
+  include nginx
+  include lb::config
+  include lb::foo
+  include lb::demo
+  include keepalived
+  include keepalived::nginx
 
   # haproxy + keepalived
-  include haproxy
-  include haproxy::wp
-  include keepalived
-  include keepalived::haproxy
+  # include haproxy
+  # include haproxy::wp
+  # include keepalived
+  # include keepalived::haproxy
 }
