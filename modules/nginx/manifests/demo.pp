@@ -22,8 +22,8 @@ class nginx::demo {
     '/www/web/demo/get_client_ip.php':
       ensure => file,
       source => 'puppet:///modules/nginx/other/code/get_client_ip.php';
-    '/www/web/demo/client_ip.php':
-      ensure => absent;
+    '/www/web/demo/db_proxy.php':
+      source => 'puppet:///modules/nginx/other/code/db_proxy.php';
   }
 
   file { '/etc/nginx/sites-enabled/demo.conf':

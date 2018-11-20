@@ -15,7 +15,7 @@ node /^lb\d+\.\d+\.\d+\.\d+\.\d+\.hn1\.aisuhua\.net$/ {
 
   # haproxy + keepalived
   include haproxy
-  include haproxy::wp_web
+  include haproxy::wp
   include keepalived
   include keepalived::haproxy
 }
