@@ -33,6 +33,11 @@ load balance (nginx + keepalived 实现双主高可用)
 - worker1.dev.aisuhua.net
 - worker2.dev.aisuhua.net
 
+数据库
+
+- wp-db1.192.168.1.40.hn1.aisuhua.net
+- wp-db2.192.168.1.41.hn1.aisuhua.net
+
 ## 改进
 
 配置文件使用 yaml 实现，分成 3 个级别：服务器主机配置、分组配置、公共配置。
